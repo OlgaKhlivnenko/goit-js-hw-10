@@ -8,10 +8,12 @@ const DEBOUNCE_DELAY = 300;
 const inputEl = document.querySelector('#search-box');
 const countryList = document.querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
+let inputValue = '';
 inputEl.addEventListener(`input`, debounce(onInputChange, DEBOUNCE_DELAY));
 
 function onInputChange(evt) {
-    let inputValue = (evt.target.value).trim();
+    
+    inputValue = (evt.target.value).trim();
     console.log(inputValue);
     API.fetchCountries(inputValue)
         .then(renderCountryCard)
