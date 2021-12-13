@@ -15,6 +15,9 @@ function onInputChange(evt) {
     
     inputValue = (evt.target.value).trim();
     console.log(inputValue);
+    if (inputValue === '') {
+        return
+    };
     API.fetchCountries(inputValue)
         .then(renderCountryCard)
         .catch(error => {
